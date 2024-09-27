@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://b8pua6mpjk13d"]
+[gd_scene load_steps=138 format=3 uid="uid://b8pua6mpjk13d"]
 
 [ext_resource type="Script" path="res://Scrips/player.gd" id="1_tlckw"]
 [ext_resource type="Texture2D" uid="uid://0pjc0cuvgtoj" path="res://Sprites/Player Sprites/Player Sprites.png" id="2_3dw8l"]
@@ -753,6 +753,28 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-48.73, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(31.995, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_lq6ur"]
 length = 0.41
@@ -793,6 +815,28 @@ tracks/2/keys = {
 "args": [false],
 "method": &"set_swing"
 }]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-82.175, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_vl1bb"]
@@ -835,6 +879,28 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_378ph"]
 length = 0.47
@@ -875,6 +941,28 @@ tracks/2/keys = {
 "args": [false],
 "method": &"set_swing"
 }]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-25.95, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-69.955, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_m76cr"]
@@ -1100,8 +1188,34 @@ tracks/1/keys = {
 "values": ["run_up"]
 }
 
+[sub_resource type="Animation" id="Animation_tli08"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColisionEspada:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColisionEspada:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qf7vu"]
 _data = {
+"RESET": SubResource("Animation_tli08"),
 "attack_down": SubResource("Animation_aj54d"),
 "attack_left": SubResource("Animation_lq6ur"),
 "attack_right": SubResource("Animation_vl1bb"),
@@ -1245,6 +1359,10 @@ states/idle/position = Vector2(509, 99)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_umkhk"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_3pe3f"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_me3wv"), "idle", "Run", SubResource("AnimationNodeStateMachineTransition_e6quy"), "Run", "idle", SubResource("AnimationNodeStateMachineTransition_yxsed")]
 graph_offset = Vector2(31, -57)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjcj8"]
+radius = 13.0
+height = 32.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_tlckw")
@@ -1257,7 +1375,7 @@ shape = SubResource("RectangleShape2D_28r2g")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6umeh")
 animation = &"idle_right"
-frame = 6
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1268,8 +1386,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7tnfl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.75
-parameters/current_position = 1.51728
-parameters/current_delta = 0.006459
+parameters/current_position = 0.262721
+parameters/current_delta = 0.0138889
 parameters/conditions/Idle = true
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1327,8 +1445,8 @@ parameters/attack/8/current_length = null
 parameters/attack/8/current_position = null
 parameters/attack/8/current_delta = null
 parameters/idle/current_length = 1.75
-parameters/idle/current_position = 1.51728
-parameters/idle/current_delta = 0.006459
+parameters/idle/current_position = 0.262721
+parameters/idle/current_delta = 0.0138889
 parameters/idle/blend_position = Vector2(0.325914, -0.0492537)
 parameters/idle/0/current_length = 3.0
 parameters/idle/0/current_position = 0.667549
@@ -1340,5 +1458,13 @@ parameters/idle/2/current_length = 1.25
 parameters/idle/2/current_position = 0.147306
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 1.75
-parameters/idle/3/current_position = 1.51728
-parameters/idle/3/current_delta = 0.006459
+parameters/idle/3/current_position = 0.262721
+parameters/idle/3/current_delta = 0.0138889
+
+[node name="ColisionEspada" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
+position = Vector2(44, 24)
+shape = SubResource("CapsuleShape2D_wjcj8")
+disabled = true
+debug_color = Color(0.991003, 0, 0.271208, 0.42)

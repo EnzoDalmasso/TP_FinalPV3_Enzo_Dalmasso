@@ -1485,6 +1485,7 @@ advance_mode = 2
 advance_condition = &"Idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1dj7i"]
+states/Start/position = Vector2(199, 100)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_osxxn")
 states/idle/position = Vector2(385, 100)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_eildu")
@@ -1503,8 +1504,8 @@ vel = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
-animation = &"run_right"
-frame = 2
+animation = &"idle_left"
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.83333, -1.33333)
@@ -1518,8 +1519,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
-parameters/current_length = 1.51
-parameters/current_position = 0.518957
+parameters/current_length = 0.91
+parameters/current_position = 0.638495
 parameters/current_delta = 0.0111111
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1530,8 +1531,8 @@ parameters/Start/current_length = 0.0
 parameters/Start/current_position = 0.0
 parameters/Start/current_delta = 0.0
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.0614327
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.638495
+parameters/idle/current_delta = 0.0111111
 parameters/idle/blend_position = Vector2(-0.00794911, 0.0322176)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.092683
@@ -1540,21 +1541,21 @@ parameters/idle/1/current_length = 0.91
 parameters/idle/1/current_position = 0.143335
 parameters/idle/1/current_delta = 0.00694444
 parameters/idle/2/current_length = 0.91
-parameters/idle/2/current_position = 0.0614327
-parameters/idle/2/current_delta = 0.0133333
+parameters/idle/2/current_position = 0.638495
+parameters/idle/2/current_delta = 0.0111111
 parameters/idle/3/current_length = 0.91
 parameters/idle/3/current_position = 0.0
 parameters/idle/3/current_delta = 0.0
 parameters/run/current_length = 1.51
-parameters/run/current_position = 0.518957
-parameters/run/current_delta = 0.0111111
+parameters/run/current_position = 0.18939
+parameters/run/current_delta = 0.0133333
 parameters/run/blend_position = Vector2(0.0190779, 0.00460255)
 parameters/run/0/current_length = 1.51
 parameters/run/0/current_position = 0.142732
 parameters/run/0/current_delta = 0.013338
 parameters/run/1/current_length = 1.51
-parameters/run/1/current_position = 0.518957
-parameters/run/1/current_delta = 0.0111111
+parameters/run/1/current_position = 0.18939
+parameters/run/1/current_delta = 0.0133333
 parameters/run/2/current_length = 1.51
 parameters/run/2/current_position = 1.35913
 parameters/run/2/current_delta = 0.0133333
@@ -1562,11 +1563,12 @@ parameters/run/3/current_length = 1.51
 parameters/run/3/current_position = 1.04437
 parameters/run/3/current_delta = 0.0136364
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SeguimientoPlayer" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeguimientoPlayer"]
 shape = SubResource("CircleShape2D_v7ryl")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="SeguimientoPlayer" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="SeguimientoPlayer" to="." method="_on_area_2d_body_exited"]

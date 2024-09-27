@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var SPEED = 300
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var areaespada: CollisionShape2D = $ColisionEspada/CollisionShape2D
+
 var attack : bool = false
 var direction : Vector2 = Vector2.ZERO
 var vida = 1
@@ -24,11 +26,15 @@ func _process(_delta):
  
 	if Input.is_action_just_pressed("Attack"):
 		set_swing(true)
+		areaespada.disabled = false
 
 
 func set_swing(value = false):
 	attack = value
 	animation_tree["parameters/conditions/Swing"] = value
+	if value == false:
+		areaespada.disabled = true
+	
  
 func set_run(value):
 	animation_tree["parameters/conditions/Run"] = value
@@ -38,3 +44,5 @@ func update_blend_position():
 	animation_tree["parameters/attack/blend_position"] = direction
 	animation_tree["parameters/idle/blend_position"] = direction
 	animation_tree["parameters/Run/blend_position"] = direction
+
+

@@ -21,8 +21,6 @@ func _on_area_2d_body_entered(body):
 		if body.get_collision_layer() == 2:
 			player=body
 			set_run(true)
-			#if player.get_collision_layer() >2:
-				#player._die()
 		
 
 
@@ -49,3 +47,9 @@ func update_blend_position():
 #func _on_cuadro_colision_body_entered(body: Node2D) -> void:
 	#if body.get_collision_layer() == 2:
 			#body._die()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	#Verificar que la animacion de ejecutar es la de muerte
+	#hacer queue_free()
+	pass # Replace with function body.
