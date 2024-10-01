@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=159 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy Sprites/Enemy.png" id="2_ad0d8"]
@@ -932,7 +932,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlkrf"]
-size = Vector2(23, 26.6667)
+size = Vector2(16.5, 29)
 
 [sub_resource type="Animation" id="Animation_2ty4c"]
 length = 1.29
@@ -1496,8 +1496,13 @@ graph_offset = Vector2(-103, -92)
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7ryl"]
 radius = 150.001
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suirs"]
+size = Vector2(22, 32.5)
+
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_6yyuc")
 vel = 50
 
@@ -1505,11 +1510,12 @@ vel = 50
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
 animation = &"idle_left"
-frame = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.83333, -1.33333)
+position = Vector2(0.75, -2)
 shape = SubResource("RectangleShape2D_qlkrf")
+debug_color = Color(0.391348, 0.471285, 1, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1520,8 +1526,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.638495
-parameters/current_delta = 0.0111111
+parameters/current_position = 0.387197
+parameters/current_delta = 0.00833333
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
 parameters/End/current_length = null
@@ -1531,8 +1537,8 @@ parameters/Start/current_length = 0.0
 parameters/Start/current_position = 0.0
 parameters/Start/current_delta = 0.0
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.638495
-parameters/idle/current_delta = 0.0111111
+parameters/idle/current_position = 0.387197
+parameters/idle/current_delta = 0.00833333
 parameters/idle/blend_position = Vector2(-0.00794911, 0.0322176)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.092683
@@ -1541,8 +1547,8 @@ parameters/idle/1/current_length = 0.91
 parameters/idle/1/current_position = 0.143335
 parameters/idle/1/current_delta = 0.00694444
 parameters/idle/2/current_length = 0.91
-parameters/idle/2/current_position = 0.638495
-parameters/idle/2/current_delta = 0.0111111
+parameters/idle/2/current_position = 0.387197
+parameters/idle/2/current_delta = 0.00833333
 parameters/idle/3/current_length = 0.91
 parameters/idle/3/current_position = 0.0
 parameters/idle/3/current_delta = 0.0
@@ -1569,6 +1575,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SeguimientoPlayer"]
 shape = SubResource("CircleShape2D_v7ryl")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="CuadroColision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuadroColision"]
+position = Vector2(0.5, -4.25)
+shape = SubResource("RectangleShape2D_suirs")
+debug_color = Color(0.995383, 0, 0.206215, 0.42)
+
 [connection signal="body_entered" from="SeguimientoPlayer" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SeguimientoPlayer" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="CuadroColision" to="." method="_on_cuadro_colision_body_entered"]

@@ -6,10 +6,10 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_juerv")]
-position = Vector2(202, 229)
+position = Vector2(131, 229)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 4)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_7sjwv")]
+[node name="Enemy" parent="." instance=ExtResource("2_7sjwv")]
 position = Vector2(541, 215)

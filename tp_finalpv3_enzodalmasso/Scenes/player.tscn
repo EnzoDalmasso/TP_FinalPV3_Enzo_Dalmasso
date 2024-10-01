@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0pjc0cuvgtoj" path="res://Sprites/Player Sprites/Player Sprites.png" id="2_3dw8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28r2g"]
-size = Vector2(56, 69)
+size = Vector2(47, 69)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64b3x"]
 atlas = ExtResource("2_3dw8l")
@@ -713,6 +713,31 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_tli08"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColisionEspada:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColisionEspada:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_aj54d"]
 length = 0.48
 tracks/0/type = "value"
@@ -1188,31 +1213,6 @@ tracks/1/keys = {
 "values": ["run_up"]
 }
 
-[sub_resource type="Animation" id="Animation_tli08"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColisionEspada:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColisionEspada:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qf7vu"]
 _data = {
 "RESET": SubResource("Animation_tli08"),
@@ -1365,10 +1365,12 @@ height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_tlckw")
+vida = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 5.5)
+position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_28r2g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1386,8 +1388,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7tnfl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.75
-parameters/current_position = 0.262721
-parameters/current_delta = 0.0138889
+parameters/current_position = 0.485632
+parameters/current_delta = 0.014991
 parameters/conditions/Idle = true
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1445,8 +1447,8 @@ parameters/attack/8/current_length = null
 parameters/attack/8/current_position = null
 parameters/attack/8/current_delta = null
 parameters/idle/current_length = 1.75
-parameters/idle/current_position = 0.262721
-parameters/idle/current_delta = 0.0138889
+parameters/idle/current_position = 0.485632
+parameters/idle/current_delta = 0.014991
 parameters/idle/blend_position = Vector2(0.325914, -0.0492537)
 parameters/idle/0/current_length = 3.0
 parameters/idle/0/current_position = 0.667549
@@ -1458,13 +1460,16 @@ parameters/idle/2/current_length = 1.25
 parameters/idle/2/current_position = 0.147306
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 1.75
-parameters/idle/3/current_position = 0.262721
-parameters/idle/3/current_delta = 0.0138889
+parameters/idle/3/current_position = 0.485632
+parameters/idle/3/current_delta = 0.014991
 
 [node name="ColisionEspada" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
 position = Vector2(44, 24)
 shape = SubResource("CapsuleShape2D_wjcj8")
 disabled = true
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
+
+[connection signal="body_entered" from="ColisionEspada" to="." method="_on_colision_espada_body_entered"]
