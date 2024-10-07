@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=170 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy Sprites/Enemy.png" id="2_ad0d8"]
@@ -932,7 +932,32 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlkrf"]
-size = Vector2(16.5, 29)
+size = Vector2(20, 32)
+
+[sub_resource type="Animation" id="Animation_7e5gl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("ColisionEspada:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-23.58, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("ColisionEspada:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_2ty4c"]
 length = 1.29
@@ -959,6 +984,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["attack_down"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2987),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_swing"
+}]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-4.585, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(21.325, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1998, 1.29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_6ek2s"]
@@ -987,6 +1060,54 @@ tracks/1/keys = {
 "update": 1,
 "values": ["attack_left"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2987),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_swing"
+}]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-21.275, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9.72, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0999, 1.29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_oxiw4"]
 length = 1.31
@@ -1014,6 +1135,54 @@ tracks/1/keys = {
 "update": 1,
 "values": ["attack_right"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2987),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_swing"
+}]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(29.48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9.36, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1332, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_4egk1"]
 length = 1.31
@@ -1040,6 +1209,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["attack_up"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2987),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_swing"
+}]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.985, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-33.835, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_wha5e"]
@@ -1347,7 +1564,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xmswr"]
-length = 1.51
+length = 1.54
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1404,6 +1621,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sht0k"]
 _data = {
+"RESET": SubResource("Animation_7e5gl"),
 "attack_down": SubResource("Animation_2ty4c"),
 "attack_left": SubResource("Animation_6ek2s"),
 "attack_right": SubResource("Animation_oxiw4"),
@@ -1518,26 +1736,35 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"Idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggmxh"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kd6yq"]
+advance_mode = 2
+advance_condition = &"Swing"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1dj7i"]
 states/Start/position = Vector2(199, 100)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_q5tj5")
-states/attack/position = Vector2(385, -18)
+states/attack/position = Vector2(482, -32)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_osxxn")
 states/idle/position = Vector2(385, 100)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_eildu")
 states/run/position = Vector2(569, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_ggmxh"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_kd6yq")]
 graph_offset = Vector2(-103, -92)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7ryl"]
 radius = 150.001
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suirs"]
-size = Vector2(22, 32.5)
+size = Vector2(34, 39.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx15c"]
-radius = 13.0
-height = 32.0
+radius = 4.0
+height = 17.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -1549,10 +1776,10 @@ vel = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
-animation = &"attack_down"
+animation = &"attack_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.75, -2)
+position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_qlkrf")
 debug_color = Color(0.391348, 0.471285, 1, 0.42)
 
@@ -1564,9 +1791,9 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
-parameters/current_length = 1.29
-parameters/current_position = 1.29
-parameters/current_delta = 0.0
+parameters/current_length = 0.91
+parameters/current_position = 0.262368
+parameters/current_delta = 0.011894
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1576,38 +1803,38 @@ parameters/End/current_delta = null
 parameters/Start/current_length = 0.0
 parameters/Start/current_position = 0.0
 parameters/Start/current_delta = 0.0
-parameters/attack/current_length = 1.29
-parameters/attack/current_position = 1.29
+parameters/attack/current_length = 1.31
+parameters/attack/current_position = 1.31
 parameters/attack/current_delta = 0.0
-parameters/attack/blend_position = Vector2(-0.00635928, 0.00460255)
+parameters/attack/blend_position = Vector2(0.0779015, -1.38458)
 parameters/attack/0/current_length = 1.29
 parameters/attack/0/current_position = 1.29
 parameters/attack/0/current_delta = 0.0
 parameters/attack/1/current_length = 1.31
-parameters/attack/1/current_position = 0.128709
-parameters/attack/1/current_delta = 0.006988
+parameters/attack/1/current_position = 1.24
+parameters/attack/1/current_delta = 0.0133333
 parameters/attack/2/current_length = 1.29
-parameters/attack/2/current_position = 0.0967594
-parameters/attack/2/current_delta = 0.0136364
+parameters/attack/2/current_position = 1.29
+parameters/attack/2/current_delta = 0.0
 parameters/attack/3/current_length = 1.31
-parameters/attack/3/current_position = 0.1867
-parameters/attack/3/current_delta = 0.0133333
+parameters/attack/3/current_position = 1.31
+parameters/attack/3/current_delta = 0.0
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.0
-parameters/idle/current_delta = 0.0
-parameters/idle/blend_position = Vector2(-0.00794911, 0.0322176)
+parameters/idle/current_position = 0.262368
+parameters/idle/current_delta = 0.011894
+parameters/idle/blend_position = Vector2(0.54849, 0.0820897)
 parameters/idle/0/current_length = 0.91
-parameters/idle/0/current_position = 0.092683
-parameters/idle/0/current_delta = 0.00833333
+parameters/idle/0/current_position = 0.88
+parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.91
-parameters/idle/1/current_position = 0.143335
-parameters/idle/1/current_delta = 0.00694444
+parameters/idle/1/current_position = 0.8
+parameters/idle/1/current_delta = 0.0133333
 parameters/idle/2/current_length = 0.91
-parameters/idle/2/current_position = 0.0
-parameters/idle/2/current_delta = 0.0
+parameters/idle/2/current_position = 0.0133333
+parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 0.91
-parameters/idle/3/current_position = 0.0
-parameters/idle/3/current_delta = 0.0
+parameters/idle/3/current_position = 0.262368
+parameters/idle/3/current_delta = 0.011894
 parameters/run/current_length = 1.51
 parameters/run/current_position = 0.0
 parameters/run/current_delta = 0.0
@@ -1636,19 +1863,25 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuadroColision"]
-position = Vector2(0.5, -4.25)
+position = Vector2(2, -3.75)
 shape = SubResource("RectangleShape2D_suirs")
 debug_color = Color(0.995383, 0, 0.206215, 0.42)
 
 [node name="ColisionEspada" type="Area2D" parent="."]
-collision_mask = 4
+position = Vector2(-3.985, -33.835)
+rotation = 1.5708
+scale = Vector2(2, 2)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
-position = Vector2(44, 24)
+position = Vector2(1.11667, -3.05667)
+rotation = 3.14159
 shape = SubResource("CapsuleShape2D_qx15c")
 disabled = true
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
 
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="SeguimientoPlayer" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SeguimientoPlayer" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="CuadroColision" to="." method="_on_cuadro_colision_body_entered"]
+[connection signal="body_exited" from="CuadroColision" to="." method="_on_cuadro_colision_body_exited"]

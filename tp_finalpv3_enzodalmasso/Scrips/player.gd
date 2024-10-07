@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name player
+class_name Player
 
 @export var SPEED = 300
 @onready var animation_tree: AnimationTree = $AnimationTree
