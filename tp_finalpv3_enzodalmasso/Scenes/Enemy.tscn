@@ -1082,7 +1082,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-21.275, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-24.31, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "bezier"
@@ -1093,7 +1093,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-9.72, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(4.16, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "value"
@@ -1157,7 +1157,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(29.48, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(24.105, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "bezier"
@@ -1168,7 +1168,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-9.36, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(4.02, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "value"
@@ -1776,7 +1776,7 @@ vel = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
-animation = &"attack_up"
+animation = &"attack_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1792,8 +1792,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.262368
-parameters/current_delta = 0.011894
+parameters/current_position = 0.553173
+parameters/current_delta = 0.0136364
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1820,8 +1820,8 @@ parameters/attack/3/current_length = 1.31
 parameters/attack/3/current_position = 1.31
 parameters/attack/3/current_delta = 0.0
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.262368
-parameters/idle/current_delta = 0.011894
+parameters/idle/current_position = 0.553173
+parameters/idle/current_delta = 0.0136364
 parameters/idle/blend_position = Vector2(0.54849, 0.0820897)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.88
@@ -1833,8 +1833,8 @@ parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0133333
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 0.91
-parameters/idle/3/current_position = 0.262368
-parameters/idle/3/current_delta = 0.011894
+parameters/idle/3/current_position = 0.553173
+parameters/idle/3/current_delta = 0.0136364
 parameters/run/current_length = 1.51
 parameters/run/current_position = 0.0
 parameters/run/current_delta = 0.0
@@ -1868,16 +1868,13 @@ shape = SubResource("RectangleShape2D_suirs")
 debug_color = Color(0.995383, 0, 0.206215, 0.42)
 
 [node name="ColisionEspada" type="Area2D" parent="."]
-position = Vector2(-3.985, -33.835)
-rotation = 1.5708
-scale = Vector2(2, 2)
+scale = Vector2(2.61, 2.61)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
 position = Vector2(1.11667, -3.05667)
 rotation = 3.14159
 shape = SubResource("CapsuleShape2D_qx15c")
-disabled = true
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
@@ -1885,3 +1882,4 @@ debug_color = Color(0.991003, 0, 0.271208, 0.42)
 [connection signal="body_exited" from="SeguimientoPlayer" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="CuadroColision" to="." method="_on_cuadro_colision_body_entered"]
 [connection signal="body_exited" from="CuadroColision" to="." method="_on_cuadro_colision_body_exited"]
+[connection signal="body_entered" from="ColisionEspada" to="." method="_on_colision_espada_body_entered"]

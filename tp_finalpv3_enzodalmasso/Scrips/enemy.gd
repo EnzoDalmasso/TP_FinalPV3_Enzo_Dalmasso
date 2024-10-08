@@ -62,7 +62,7 @@ func danio():
 
 
 
-#Cuando el Player entra al CuadroColision el enemigo realiza el attaque 
+#Cuando el Player entra al CuadroColision el enemigo realiza la animacion de ataque y deja de correr
 func _on_cuadro_colision_body_entered(body):
 	if body is Player:
 		perseguir=false
@@ -71,7 +71,7 @@ func _on_cuadro_colision_body_entered(body):
 		
 		print("auch")
 
-
+#Cuando el Player entra al CuadroColision el enemigo deja de realizar la animacion de ataque y vuelve al estado correr
 func _on_cuadro_colision_body_exited(body: Node2D) -> void:
 	if body is Player:
 		set_swing(false)
@@ -86,3 +86,9 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		if anim_name=="attack_left" or anim_name=="attack_right"or anim_name=="attack_up" or anim_name=="attack_down":
 			set_swing(true)
 	
+
+
+
+func _on_colision_espada_body_entered(body):
+	if body is Player:
+		player_ref.danio()
