@@ -936,27 +936,51 @@ size = Vector2(20, 32)
 
 [sub_resource type="Animation" id="Animation_7e5gl"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = false
-tracks/0/path = NodePath("ColisionEspada:position:x")
+tracks/0/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-23.58, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = false
-tracks/1/path = NodePath("ColisionEspada:position:y")
+tracks/1/path = NodePath("ColisionEspada:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(2.24, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("ColisionEspada:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-33.34, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("ColisionEspada:rotation")
+tracks/3/interp = 3
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_2ty4c"]
@@ -999,39 +1023,51 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-4.585, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 1.29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/path = NodePath("ColisionEspada:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(21.325, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/5/type = "value"
+tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/path = NodePath("ColisionEspada:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.1998, 1.29),
-"transitions": PackedFloat32Array(1, 1),
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(24.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColisionEspada:rotation")
+tracks/6/interp = 3
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, true]
+"values": [1.5708]
 }
 
 [sub_resource type="Animation" id="Animation_6ek2s"]
@@ -1074,39 +1110,51 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-24.31, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 1.29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/path = NodePath("ColisionEspada:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(4.16, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-23.5, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/5/type = "value"
+tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/path = NodePath("ColisionEspada:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.0999, 1.29),
-"transitions": PackedFloat32Array(1, 1),
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColisionEspada:rotation")
+tracks/6/interp = 3
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, true]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_oxiw4"]
@@ -1149,39 +1197,51 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(24.105, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/path = NodePath("ColisionEspada:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(4.02, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(28.5, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/5/type = "value"
+tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/path = NodePath("ColisionEspada:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.1332, 1.31),
-"transitions": PackedFloat32Array(1, 1),
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColisionEspada:rotation")
+tracks/6/interp = 3
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, true]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_4egk1"]
@@ -1224,39 +1284,51 @@ tracks/2/keys = {
 "method": &"set_swing"
 }]
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColisionEspada:position:x")
+tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-3.985, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 1.31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColisionEspada:position:y")
+tracks/4/path = NodePath("ColisionEspada:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-33.835, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(2.24, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/5/type = "value"
+tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
+tracks/5/path = NodePath("ColisionEspada:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.1, 1.31),
-"transitions": PackedFloat32Array(1, 1),
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-33.34, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColisionEspada:rotation")
+tracks/6/interp = 3
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, true]
+"values": [1.5708]
 }
 
 [sub_resource type="Animation" id="Animation_wha5e"]
@@ -1776,7 +1848,7 @@ vel = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
-animation = &"attack_right"
+animation = &"attack_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1792,8 +1864,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.553173
-parameters/current_delta = 0.0136364
+parameters/current_position = 0.161167
+parameters/current_delta = 0.0125
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1820,8 +1892,8 @@ parameters/attack/3/current_length = 1.31
 parameters/attack/3/current_position = 1.31
 parameters/attack/3/current_delta = 0.0
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.553173
-parameters/idle/current_delta = 0.0136364
+parameters/idle/current_position = 0.161167
+parameters/idle/current_delta = 0.0125
 parameters/idle/blend_position = Vector2(0.54849, 0.0820897)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.88
@@ -1833,8 +1905,8 @@ parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0133333
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 0.91
-parameters/idle/3/current_position = 0.553173
-parameters/idle/3/current_delta = 0.0136364
+parameters/idle/3/current_position = 0.161167
+parameters/idle/3/current_delta = 0.0125
 parameters/run/current_length = 1.51
 parameters/run/current_position = 0.0
 parameters/run/current_delta = 0.0
@@ -1868,12 +1940,12 @@ shape = SubResource("RectangleShape2D_suirs")
 debug_color = Color(0.995383, 0, 0.206215, 0.42)
 
 [node name="ColisionEspada" type="Area2D" parent="."]
-scale = Vector2(2.61, 2.61)
+position = Vector2(2.24, -33.34)
+rotation = 1.5708
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
-position = Vector2(1.11667, -3.05667)
-rotation = 3.14159
+scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_qx15c")
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
 
