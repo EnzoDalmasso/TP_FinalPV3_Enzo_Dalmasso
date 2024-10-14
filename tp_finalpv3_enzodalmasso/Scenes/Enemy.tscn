@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=177 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy Sprites/Enemy.png" id="2_ad0d8"]
@@ -1738,6 +1738,31 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pmgsm"]
+animation = &"dead_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yvgkq"]
+animation = &"dead_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_swbwx"]
+animation = &"dead_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eyny6"]
+animation = &"dead_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_nmbam"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_pmgsm")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yvgkq")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_swbwx")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_eyny6")
+blend_point_3/pos = Vector2(0, -1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spix1"]
 animation = &"idle_down"
 
@@ -1817,16 +1842,27 @@ advance_condition = &"Run"
 advance_mode = 2
 advance_condition = &"Swing"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4d2kx"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c6vpl"]
+advance_mode = 2
+advance_condition = &"Dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1dj7i"]
 states/Start/position = Vector2(199, 100)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_q5tj5")
 states/attack/position = Vector2(482, -32)
+states/dead/node = SubResource("AnimationNodeBlendSpace2D_nmbam")
+states/dead/position = Vector2(477, 195)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_osxxn")
 states/idle/position = Vector2(385, 100)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_eildu")
 states/run/position = Vector2(569, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_ggmxh"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_kd6yq")]
-graph_offset = Vector2(-103, -92)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_ggmxh"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_kd6yq"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_4d2kx"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c6vpl")]
+graph_offset = Vector2(-36, -45)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7ryl"]
 radius = 150.001
@@ -1848,7 +1884,8 @@ vel = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
-animation = &"attack_up"
+animation = &"idle_right"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1864,8 +1901,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.161167
-parameters/current_delta = 0.0125
+parameters/current_position = 0.407813
+parameters/current_delta = 0.0148148
+parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
 parameters/conditions/Swing = false
@@ -1891,9 +1929,25 @@ parameters/attack/2/current_delta = 0.0
 parameters/attack/3/current_length = 1.31
 parameters/attack/3/current_position = 1.31
 parameters/attack/3/current_delta = 0.0
+parameters/dead/current_length = 1.58
+parameters/dead/current_position = 1.58
+parameters/dead/current_delta = 0.0
+parameters/dead/blend_position = Vector2(-0.00953895, 0.759414)
+parameters/dead/0/current_length = 1.58
+parameters/dead/0/current_position = 0.0
+parameters/dead/0/current_delta = 0.773333
+parameters/dead/1/current_length = 1.58
+parameters/dead/1/current_position = 0.52
+parameters/dead/1/current_delta = 0.0133333
+parameters/dead/2/current_length = 1.58
+parameters/dead/2/current_position = 1.58
+parameters/dead/2/current_delta = 0.0
+parameters/dead/3/current_length = 1.58
+parameters/dead/3/current_position = 0.533333
+parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.161167
-parameters/idle/current_delta = 0.0125
+parameters/idle/current_position = 0.407813
+parameters/idle/current_delta = 0.0148148
 parameters/idle/blend_position = Vector2(0.54849, 0.0820897)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.88
@@ -1905,8 +1959,8 @@ parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0133333
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 0.91
-parameters/idle/3/current_position = 0.161167
-parameters/idle/3/current_delta = 0.0125
+parameters/idle/3/current_position = 0.407813
+parameters/idle/3/current_delta = 0.0148148
 parameters/run/current_length = 1.51
 parameters/run/current_position = 0.0
 parameters/run/current_delta = 0.0
@@ -1941,7 +1995,6 @@ debug_color = Color(0.995383, 0, 0.206215, 0.42)
 
 [node name="ColisionEspada" type="Area2D" parent="."]
 position = Vector2(2.24, -33.34)
-rotation = 1.5708
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]

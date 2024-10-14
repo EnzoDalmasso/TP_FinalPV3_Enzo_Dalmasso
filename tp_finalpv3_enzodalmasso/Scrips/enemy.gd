@@ -42,21 +42,30 @@ func _on_area_2d_body_exited(_body):
 func set_run(value):
 	animation_tree["parameters/conditions/Run"] = value
 	animation_tree["parameters/conditions/Idle"] = not value
-	print("corre perra correee: ", value)
+	#print("corre perra correee: ", value)
 
 
 func set_swing(value = false):
 	animation_tree["parameters/conditions/Swing"] = value
 
+func set_dead(value = false):
+	animation_tree["parameters/conditions/Dead"] = value
 
 func update_blend_position():
 	animation_tree["parameters/idle/blend_position"] = direction
 	animation_tree["parameters/run/blend_position"] = direction
 	animation_tree["parameters/attack/blend_position"] = direction
+	animation_tree["parameters/dead/blend_position"] = direction
 
 func danio():
 	vida-=1
 	if vida == 0:
+		print("muerto")
+		set_physics_process(false)
+		set_dead(true)
+		set_run(false)
+		set_swing(false)
+		await (animation_tree.animation_finished)
 		queue_free()
 
 
@@ -69,7 +78,6 @@ func _on_cuadro_colision_body_entered(body):
 		set_run(false)
 		set_swing(true)
 		
-		print("auch")
 
 #Cuando el Player entra al CuadroColision el enemigo deja de realizar la animacion de ataque y vuelve al estado correr
 func _on_cuadro_colision_body_exited(body: Node2D) -> void:
@@ -81,7 +89,6 @@ func _on_cuadro_colision_body_exited(body: Node2D) -> void:
 
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	print(anim_name)
 	if !perseguir:
 		if anim_name=="attack_left" or anim_name=="attack_right"or anim_name=="attack_up" or anim_name=="attack_down":
 			set_swing(true)

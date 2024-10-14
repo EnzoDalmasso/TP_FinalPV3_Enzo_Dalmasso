@@ -1377,6 +1377,7 @@ shape = SubResource("RectangleShape2D_28r2g")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6umeh")
 animation = &"idle_right"
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1387,7 +1388,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7tnfl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.75
-parameters/current_position = 0.077349
+parameters/current_position = 1.58461
 parameters/current_delta = 0.0133333
 parameters/conditions/Idle = true
 parameters/conditions/Run = false
@@ -1446,7 +1447,7 @@ parameters/attack/8/current_length = null
 parameters/attack/8/current_position = null
 parameters/attack/8/current_delta = null
 parameters/idle/current_length = 1.75
-parameters/idle/current_position = 0.077349
+parameters/idle/current_position = 1.58461
 parameters/idle/current_delta = 0.0133333
 parameters/idle/blend_position = Vector2(0.325914, -0.0492537)
 parameters/idle/0/current_length = 3.0
@@ -1459,7 +1460,7 @@ parameters/idle/2/current_length = 1.25
 parameters/idle/2/current_position = 0.147306
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 1.75
-parameters/idle/3/current_position = 0.077349
+parameters/idle/3/current_position = 1.58461
 parameters/idle/3/current_delta = 0.0133333
 
 [node name="ColisionEspada" type="Area2D" parent="."]
