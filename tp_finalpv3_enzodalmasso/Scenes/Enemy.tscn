@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=181 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy Sprites/Enemy.png" id="2_ad0d8"]
@@ -1851,18 +1851,36 @@ advance_condition = &"Idle"
 advance_mode = 2
 advance_condition = &"Dead"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nurd3"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eytli"]
+advance_mode = 2
+advance_condition = &"Dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_18u8w"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Swing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ffdp"]
+advance_mode = 2
+advance_condition = &"Dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1dj7i"]
 states/Start/position = Vector2(199, 100)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_q5tj5")
-states/attack/position = Vector2(482, -32)
+states/attack/position = Vector2(514, -43)
 states/dead/node = SubResource("AnimationNodeBlendSpace2D_nmbam")
-states/dead/position = Vector2(477, 195)
+states/dead/position = Vector2(514, 262)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_osxxn")
-states/idle/position = Vector2(385, 100)
+states/idle/position = Vector2(313, 100)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_eildu")
-states/run/position = Vector2(569, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_ggmxh"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_kd6yq"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_4d2kx"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c6vpl")]
-graph_offset = Vector2(-36, -45)
+states/run/position = Vector2(734, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7q6o2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_364jh"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hfogf"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_o6nox"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wqvdg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_ggmxh"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_kd6yq"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_4d2kx"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c6vpl"), "dead", "run", SubResource("AnimationNodeStateMachineTransition_nurd3"), "run", "dead", SubResource("AnimationNodeStateMachineTransition_eytli"), "dead", "attack", SubResource("AnimationNodeStateMachineTransition_18u8w"), "attack", "dead", SubResource("AnimationNodeStateMachineTransition_6ffdp")]
+graph_offset = Vector2(107, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7ryl"]
 radius = 150.001
@@ -1885,7 +1903,7 @@ vel = 50
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
 animation = &"idle_right"
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1901,8 +1919,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.407813
-parameters/current_delta = 0.0148148
+parameters/current_position = 0.278051
+parameters/current_delta = 0.007717
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1946,8 +1964,8 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.407813
-parameters/idle/current_delta = 0.0148148
+parameters/idle/current_position = 0.278051
+parameters/idle/current_delta = 0.007717
 parameters/idle/blend_position = Vector2(0.54849, 0.0820897)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.88
@@ -1959,8 +1977,8 @@ parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0133333
 parameters/idle/2/current_delta = 0.0133333
 parameters/idle/3/current_length = 0.91
-parameters/idle/3/current_position = 0.407813
-parameters/idle/3/current_delta = 0.0148148
+parameters/idle/3/current_position = 0.278051
+parameters/idle/3/current_delta = 0.007717
 parameters/run/current_length = 1.51
 parameters/run/current_position = 0.0
 parameters/run/current_delta = 0.0
