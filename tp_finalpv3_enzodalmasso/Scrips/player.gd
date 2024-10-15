@@ -43,11 +43,14 @@ func set_run(value):
 	animation_tree["parameters/conditions/Run"] = value
 	animation_tree["parameters/conditions/Idle"] = not value
  
+func set_dead(value = false):
+	animation_tree["parameters/conditions/Dead"] = value
+	
 func update_blend_position():
 	animation_tree["parameters/attack/blend_position"] = direction
 	animation_tree["parameters/idle/blend_position"] = direction
 	animation_tree["parameters/Run/blend_position"] = direction
-
+	animation_tree["parameters/dead/blend_position"] = direction
 
 
 
@@ -59,5 +62,11 @@ func _on_colision_espada_body_entered(body):
 func danio():
 	vida-=1
 	if vida == 0:
+		print("muerto")
+		set_physics_process(false)
+		set_dead(true)
+		set_run(false)
+		set_swing(false)
+		await (animation_tree.animation_finished)
 		queue_free()
 
