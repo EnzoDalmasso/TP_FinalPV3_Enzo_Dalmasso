@@ -62,11 +62,12 @@ func _on_colision_espada_body_entered(body):
 func danio():
 	vida-=1
 	if vida == 0:
-		print("muerto")
 		set_physics_process(false)
 		set_dead(true)
-		set_run(false)
-		set_swing(false)
-		await (animation_tree.animation_finished)
-		queue_free()
 
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name ==  "dead_up" or anim_name=="dead_down"or anim_name=="dead_right" or anim_name=="dead_left":
+		get_parent().remove_child(self)
+		queue_free()
