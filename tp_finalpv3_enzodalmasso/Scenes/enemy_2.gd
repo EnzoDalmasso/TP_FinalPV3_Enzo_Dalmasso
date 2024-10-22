@@ -1,2 +1,0 @@
-extends enemigo_base
-
