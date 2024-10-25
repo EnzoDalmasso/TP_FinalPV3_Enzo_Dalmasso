@@ -1030,10 +1030,10 @@ tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.29),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4995, 1.29),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -1117,10 +1117,10 @@ tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.29),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4995, 1.29),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -1204,10 +1204,10 @@ tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.31),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4995, 1.31),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -1291,10 +1291,10 @@ tracks/3/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.31),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4995, 1.31),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -1919,8 +1919,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.91
-parameters/current_position = 0.580502
-parameters/current_delta = 0.0133333
+parameters/current_position = 0.468338
+parameters/current_delta = 0.00702304
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1964,15 +1964,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.91
-parameters/idle/current_position = 0.580502
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.468338
+parameters/idle/current_delta = 0.00702304
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.91
-parameters/idle/1/current_position = 0.580502
-parameters/idle/1/current_delta = 0.0133333
+parameters/idle/1/current_position = 0.468338
+parameters/idle/1/current_delta = 0.00702304
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606

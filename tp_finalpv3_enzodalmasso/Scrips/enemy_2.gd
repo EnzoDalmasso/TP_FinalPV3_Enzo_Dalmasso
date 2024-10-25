@@ -45,9 +45,8 @@ func update_blend_position():
 	animation_tree["parameters/dead/blend_position"] = direction
 
 func danio():
-	vida-=1
+	vida-=2
 	if vida == 0:
-		print("muerto")
 		set_physics_process(false)
 		set_dead(true)
 		set_run(false)
@@ -69,9 +68,9 @@ func _on_cuadro_colision_body_entered(body):
 #Cuando el Player entra al CuadroColision el enemigo deja de realizar la animacion de ataque y vuelve al estado correr
 func _on_cuadro_colision_body_exited(body: Node2D) -> void:
 	if body is Player:
+		perseguir=true
 		set_swing(false)
 		set_run(true)
-		perseguir=true
 
 
 
@@ -85,4 +84,4 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 func _on_colision_espada_body_entered(body):
 	if body is Player:
-		player_ref.danio()
+		body.danio(3,global_position)

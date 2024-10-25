@@ -8,6 +8,8 @@ class_name Player
 var attack : bool = false
 var direction : Vector2 = Vector2.ZERO
 @export var vida = 10
+@export var fuerza_empuje: int =500
+
 
 
 func _physics_process(_delta):
@@ -59,11 +61,14 @@ func _on_colision_espada_body_entered(body):
 		body.danio()
 	
 
-func danio():
-	vida-=1
-	if vida == 0:
+func danio(danio_enemi: int, pos_enemigo : Vector2):
+	
+	vida-=danio_enemi
+	if vida <= 0:
 		set_physics_process(false)
 		set_dead(true)
+	
+	empuje(pos_enemigo)
 
 
 
@@ -71,3 +76,10 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name ==  "dead_up" or anim_name=="dead_down"or anim_name=="dead_right" or anim_name=="dead_left":
 		get_parent().remove_child(self)
 		queue_free()
+
+func empuje(direccion: Vector2):
+	print((global_position-direccion).normalized())
+	var dir_empuje = (global_position-direccion).normalized() * fuerza_empuje
+	velocity = dir_empuje
+	move_and_slide()
+	print("checkcccc")
