@@ -29,7 +29,6 @@ func _on_area_2d_body_exited(_body):
 func set_run(value):
 	animation_tree["parameters/conditions/Run"] = value
 	animation_tree["parameters/conditions/Idle"] = not value
-	#print("corre perra correee: ", value)
 
 
 func set_swing(value = false):
@@ -45,7 +44,7 @@ func update_blend_position():
 	animation_tree["parameters/dead/blend_position"] = direction
 
 func danio():
-	vida-=2
+	vida-=1
 	if vida == 0:
 		set_physics_process(false)
 		set_dead(true)
