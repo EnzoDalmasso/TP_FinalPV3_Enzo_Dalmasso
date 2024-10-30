@@ -4,13 +4,16 @@ class_name Player
 @export var SPEED = 300
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var areaespada: CollisionShape2D = $ColisionEspada/CollisionShape2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var attack : bool = false
 var direction : Vector2 = Vector2.ZERO
 @export var vida = 10
 @export var fuerza_empuje: int =500
 
+@onready var timer: Timer = $Timer
 
+var material_shader
 
 func _physics_process(_delta):
 	if not attack:
@@ -59,11 +62,11 @@ func update_blend_position():
 func _on_colision_espada_body_entered(body):
 	if body is enemigo_base:
 		body.danio()
-	
+		
 
 func danio(danio_enemi: int, pos_enemigo : Vector2):
-	
 	vida-=danio_enemi
+	shader_danio()
 	if vida <= 0:
 		set_physics_process(false)
 		set_dead(true)
@@ -78,8 +81,18 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 
 func empuje(direccion: Vector2):
-	print((global_position-direccion).normalized())
+
 	var dir_empuje = (global_position-direccion).normalized() * fuerza_empuje
 	velocity = dir_empuje
 	move_and_slide()
-	print("checkcccc")
+
+func shader_danio():
+	material_shader= animated_sprite_2d.material
+	if material_shader is ShaderMaterial:
+		material_shader.set_shader_parameter("active", true)
+		timer.start()
+
+
+
+func _on_timer_timeout() -> void:
+	material_shader.set_shader_parameter("active", false)

@@ -7,17 +7,14 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_juerv")]
-position = Vector2(131, 229)
+position = Vector2(456, 302)
 fuerza_empuje = 7000
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 4)
 
 [node name="Enemy" parent="." instance=ExtResource("2_7sjwv")]
-position = Vector2(770, 296)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_7sjwv")]
-position = Vector2(93, 601)
+position = Vector2(885, 142)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_26g04")]
-position = Vector2(-118, 251)
+position = Vector2(889, 417)

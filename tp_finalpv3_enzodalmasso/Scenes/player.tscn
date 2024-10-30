@@ -1,11 +1,17 @@
-[gd_scene load_steps=182 format=3 uid="uid://b8pua6mpjk13d"]
+[gd_scene load_steps=184 format=3 uid="uid://b8pua6mpjk13d"]
 
 [ext_resource type="Script" path="res://Scrips/player.gd" id="1_tlckw"]
 [ext_resource type="Texture2D" uid="uid://0pjc0cuvgtoj" path="res://Sprites/Player Sprites/Player Sprites.png" id="2_3dw8l"]
+[ext_resource type="Shader" path="res://Shaders/player.gdshader" id="2_851jm"]
 [ext_resource type="Texture2D" uid="uid://cdp5od5wou4dg" path="res://Sprites/Player Sprites/Sword_Death_full.png" id="3_b6vt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28r2g"]
 size = Vector2(47, 69)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mif5s"]
+shader = ExtResource("2_851jm")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(0.988554, 0.0962677, 1.92523e-07, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64b3x"]
 atlas = ExtResource("2_3dw8l")
@@ -1775,10 +1781,11 @@ position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_28r2g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_mif5s")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6umeh")
 animation = &"idle_left"
-frame = 4
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1789,8 +1796,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7tnfl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.2
-parameters/current_position = 0.492461
-parameters/current_delta = 0.0133333
+parameters/current_position = 0.230742
+parameters/current_delta = 0.0145833
 parameters/conditions/Dead = false
 parameters/conditions/Idle = true
 parameters/conditions/Run = false
@@ -1865,12 +1872,12 @@ parameters/dead/3/current_length = 0.44
 parameters/dead/3/current_position = 0.44
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 1.2
-parameters/idle/current_position = 0.492461
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.230742
+parameters/idle/current_delta = 0.0145833
 parameters/idle/blend_position = Vector2(-0.674086, -0.409623)
 parameters/idle/0/current_length = 1.2
-parameters/idle/0/current_position = 0.492461
-parameters/idle/0/current_delta = 0.0133333
+parameters/idle/0/current_position = 0.230742
+parameters/idle/0/current_delta = 0.0145833
 parameters/idle/1/current_length = 0.29
 parameters/idle/1/current_position = 0.0266667
 parameters/idle/1/current_delta = 0.0133333
@@ -1890,5 +1897,10 @@ shape = SubResource("CapsuleShape2D_wjcj8")
 disabled = true
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="ColisionEspada" to="." method="_on_colision_espada_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
