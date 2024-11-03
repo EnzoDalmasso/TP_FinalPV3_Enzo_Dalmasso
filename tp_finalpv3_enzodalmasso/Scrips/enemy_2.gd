@@ -45,6 +45,7 @@ func update_blend_position():
 
 func danio():
 	vida-=1
+	progress_bar.value = vida
 	if vida == 0:
 		set_physics_process(false)
 		set_dead(true)

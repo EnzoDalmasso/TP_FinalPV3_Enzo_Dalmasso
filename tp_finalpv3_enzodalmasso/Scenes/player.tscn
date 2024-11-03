@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://b8pua6mpjk13d"]
+[gd_scene load_steps=186 format=3 uid="uid://b8pua6mpjk13d"]
 
 [ext_resource type="Script" path="res://Scrips/player.gd" id="1_tlckw"]
 [ext_resource type="Texture2D" uid="uid://0pjc0cuvgtoj" path="res://Sprites/Player Sprites/Player Sprites.png" id="2_3dw8l"]
@@ -1740,16 +1740,16 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"Swing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xj7ru"]
-advance_mode = 2
-advance_condition = &"Dead"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qf7wo"]
 switch_mode = 2
 advance_mode = 2
 advance_condition = &"Run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_20djd"]
+advance_mode = 2
+advance_condition = &"Dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xj7ru"]
 advance_mode = 2
 advance_condition = &"Dead"
 
@@ -1762,12 +1762,18 @@ states/dead/node = SubResource("AnimationNodeBlendSpace2D_xicp5")
 states/dead/position = Vector2(557, 226)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_g2tkm")
 states/idle/position = Vector2(352, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_umkhk"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_3pe3f"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_me3wv"), "idle", "Run", SubResource("AnimationNodeStateMachineTransition_e6quy"), "Run", "idle", SubResource("AnimationNodeStateMachineTransition_yxsed"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_a1ypx"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_08yw8"), "dead", "attack", SubResource("AnimationNodeStateMachineTransition_72klq"), "attack", "dead", SubResource("AnimationNodeStateMachineTransition_xj7ru"), "dead", "Run", SubResource("AnimationNodeStateMachineTransition_qf7wo"), "Run", "dead", SubResource("AnimationNodeStateMachineTransition_20djd")]
-graph_offset = Vector2(-48, -31)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_umkhk"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_3pe3f"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_me3wv"), "idle", "Run", SubResource("AnimationNodeStateMachineTransition_e6quy"), "Run", "idle", SubResource("AnimationNodeStateMachineTransition_yxsed"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_a1ypx"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_08yw8"), "dead", "attack", SubResource("AnimationNodeStateMachineTransition_72klq"), "dead", "Run", SubResource("AnimationNodeStateMachineTransition_qf7wo"), "Run", "dead", SubResource("AnimationNodeStateMachineTransition_20djd"), "attack", "dead", SubResource("AnimationNodeStateMachineTransition_xj7ru")]
+graph_offset = Vector2(92, -40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjcj8"]
 radius = 13.0
 height = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac5yr"]
+bg_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84gom"]
+bg_color = Color(0.98764, 0.0940391, 0.0825857, 1)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -1784,7 +1790,7 @@ material = SubResource("ShaderMaterial_mif5s")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6umeh")
 animation = &"idle_left"
-frame = 9
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1795,8 +1801,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7tnfl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.2
-parameters/current_position = 0.973153
-parameters/current_delta = 0.0161373
+parameters/current_position = 0.146493
+parameters/current_delta = 0.0133333
 parameters/conditions/Dead = false
 parameters/conditions/Idle = true
 parameters/conditions/Run = false
@@ -1871,12 +1877,12 @@ parameters/dead/3/current_length = 0.44
 parameters/dead/3/current_position = 0.44
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 1.2
-parameters/idle/current_position = 0.973153
-parameters/idle/current_delta = 0.0161373
+parameters/idle/current_position = 0.146493
+parameters/idle/current_delta = 0.0133333
 parameters/idle/blend_position = Vector2(-0.674086, -0.409623)
 parameters/idle/0/current_length = 1.2
-parameters/idle/0/current_position = 0.973153
-parameters/idle/0/current_delta = 0.0161373
+parameters/idle/0/current_position = 0.146493
+parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.29
 parameters/idle/1/current_position = 0.0266667
 parameters/idle/1/current_delta = 0.0133333
@@ -1899,6 +1905,18 @@ debug_color = Color(0.991003, 0, 0.271208, 0.42)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -46.0
+offset_top = -45.0
+offset_right = 47.0
+offset_bottom = -22.0
+scale = Vector2(1, 0.24)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_ac5yr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_84gom")
+max_value = 10.0
+value = 10.0
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="ColisionEspada" to="." method="_on_colision_espada_body_entered"]

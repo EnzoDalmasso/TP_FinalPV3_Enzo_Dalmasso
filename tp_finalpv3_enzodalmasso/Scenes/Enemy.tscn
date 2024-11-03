@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=183 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy1 Sprites/Enemy.png" id="2_ad0d8"]
@@ -1909,6 +1909,12 @@ size = Vector2(34, 39.5)
 radius = 4.0
 height = 17.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2di6l"]
+bg_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kwr4"]
+bg_color = Color(0.98764, 0.0940391, 0.0825857, 1)
+
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 4
@@ -1920,7 +1926,6 @@ vel = 50
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
 animation = &"idle_up"
-frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1936,8 +1941,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.5
-parameters/current_position = 0.427357
-parameters/current_delta = 0.0133333
+parameters/current_position = 0.0745357
+parameters/current_delta = 0.0138889
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1981,15 +1986,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.5
-parameters/idle/current_position = 0.427357
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.0745357
+parameters/idle/current_delta = 0.0138889
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.5
-parameters/idle/1/current_position = 0.427357
-parameters/idle/1/current_delta = 0.0133333
+parameters/idle/1/current_position = 0.0745357
+parameters/idle/1/current_delta = 0.0138889
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606
@@ -2036,6 +2041,18 @@ collision_mask = 2
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_qx15c")
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -28.0
+offset_right = 19.0
+offset_bottom = -5.0
+scale = Vector2(1, 0.0799997)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_2di6l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5kwr4")
+max_value = 10.0
+value = 10.0
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="SeguimientoPlayer" to="." method="_on_area_2d_body_entered"]

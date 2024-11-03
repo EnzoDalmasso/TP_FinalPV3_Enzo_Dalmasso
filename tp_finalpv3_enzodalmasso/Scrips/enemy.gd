@@ -5,6 +5,7 @@ class_name enemigo_base
 @onready var cuadro_colision: Area2D = $CuadroColision
 @onready var colision_espada: CollisionShape2D = $ColisionEspada/CollisionShape2D
 
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @export_range(10,100) var vel: int = 10 
 var player_ref = null
@@ -58,6 +59,7 @@ func update_blend_position():
 
 func danio():
 	vida-=1
+	progress_bar.value = vida
 	if vida == 0:
 		set_physics_process(false)
 		set_dead(true)

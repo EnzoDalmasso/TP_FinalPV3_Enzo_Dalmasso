@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfkiskudci447"]
+[gd_scene load_steps=2 format=3 uid="uid://dfkiskudci447"]
 
 [ext_resource type="PackedScene" uid="uid://b8pua6mpjk13d" path="res://Scenes/player.tscn" id="1_juerv"]
-[ext_resource type="PackedScene" uid="uid://dm5c2y7le0rsq" path="res://Scenes/Enemy.tscn" id="2_7sjwv"]
-[ext_resource type="PackedScene" uid="uid://54c753qu36p" path="res://Scenes/Enemy2.tscn" id="3_26g04"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,15 +10,3 @@ fuerza_empuje = 7000
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 4)
-
-[node name="Enemy" parent="." instance=ExtResource("2_7sjwv")]
-position = Vector2(885, 142)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_26g04")]
-position = Vector2(222, 173)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_26g04")]
-position = Vector2(290, 455)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_7sjwv")]
-position = Vector2(888, 452)
