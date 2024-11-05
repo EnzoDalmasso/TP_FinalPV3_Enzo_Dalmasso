@@ -1916,7 +1916,7 @@ bg_color = Color(0, 0, 0, 0.431373)
 bg_color = Color(0.98764, 0.0940391, 0.0825857, 1)
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(1.2, 1.2)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_6yyuc")
@@ -1926,6 +1926,7 @@ vel = 50
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
 animation = &"idle_up"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1941,8 +1942,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.5
-parameters/current_position = 0.0745357
-parameters/current_delta = 0.0138889
+parameters/current_position = 0.247326
+parameters/current_delta = 0.0133333
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1986,15 +1987,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.5
-parameters/idle/current_position = 0.0745357
-parameters/idle/current_delta = 0.0138889
+parameters/idle/current_position = 0.247326
+parameters/idle/current_delta = 0.0133333
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.5
-parameters/idle/1/current_position = 0.0745357
-parameters/idle/1/current_delta = 0.0138889
+parameters/idle/1/current_position = 0.247326
+parameters/idle/1/current_delta = 0.0133333
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606
