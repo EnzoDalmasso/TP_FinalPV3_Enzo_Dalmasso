@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfvcspogwkbm4"]
+
+[ext_resource type="Script" path="res://Scrips/main_1.gd" id="1_8hppi"]
+[ext_resource type="PackedScene" uid="uid://cgrvp7ndn2770" path="res://Scenes/nivel.tscn" id="1_8jtd8"]
+[ext_resource type="PackedScene" uid="uid://b8pua6mpjk13d" path="res://Scenes/player.tscn" id="2_m52i5"]
+[ext_resource type="PackedScene" uid="uid://dm5c2y7le0rsq" path="res://Scenes/Enemy.tscn" id="3_dfhws"]
+[ext_resource type="PackedScene" uid="uid://54c753qu36p" path="res://Scenes/Enemy2.tscn" id="4_a5kde"]
+[ext_resource type="PackedScene" uid="uid://ylfwmgyawc7w" path="res://Scenes/game_over.tscn" id="5_spnwt"]
+[ext_resource type="PackedScene" uid="uid://cd1pirtsia661" path="res://Scenes/Victoria.tscn" id="6_byqyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e1vw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8hppi")
+
+[node name="Nivel" parent="." instance=ExtResource("1_8jtd8")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(581, 322)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." instance=ExtResource("2_m52i5")]
+light_mask = 3
+position = Vector2(308, 118)
+scale = Vector2(0.6, 0.6)
+SPEED = 100
+fuerza_empuje = 7000
+
+[node name="Enemy" parent="." instance=ExtResource("3_dfhws")]
+position = Vector2(255, 430)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_a5kde")]
+position = Vector2(321, 490)
+
+[node name="Game Over" parent="." instance=ExtResource("5_spnwt")]
+visible = false
+
+[node name="Victoria" parent="." instance=ExtResource("6_byqyc")]
+visible = false
+
+[node name="AreaVictoria" type="Area2D" parent="."]
+visibility_layer = 3
+position = Vector2(441, 89)
+scale = Vector2(4, 4)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVictoria"]
+shape = SubResource("RectangleShape2D_1e1vw")
+
+[connection signal="muerto" from="Player" to="." method="_on_player_muerto"]
+[connection signal="body_entered" from="AreaVictoria" to="." method="_on_area_victoria_body_entered"]

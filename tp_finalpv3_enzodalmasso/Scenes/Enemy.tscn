@@ -938,7 +938,7 @@ size = Vector2(20, 32)
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColisionEspada/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -946,7 +946,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -1942,8 +1942,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.5
-parameters/current_position = 0.247326
-parameters/current_delta = 0.0133333
+parameters/current_position = 0.223788
+parameters/current_delta = 0.1
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1987,15 +1987,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.5
-parameters/idle/current_position = 0.247326
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.223788
+parameters/idle/current_delta = 0.1
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.5
-parameters/idle/1/current_position = 0.247326
-parameters/idle/1/current_delta = 0.0133333
+parameters/idle/1/current_position = 0.223788
+parameters/idle/1/current_delta = 0.1
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606
@@ -2041,6 +2041,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionEspada"]
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_qx15c")
+disabled = true
 debug_color = Color(0.991003, 0, 0.271208, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
