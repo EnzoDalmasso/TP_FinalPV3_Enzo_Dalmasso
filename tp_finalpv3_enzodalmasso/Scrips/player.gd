@@ -80,6 +80,7 @@ func danio(danio_enemi: int, pos_enemigo : Vector2):
 	if vida <= 0:
 		set_physics_process(false)
 		set_dead(true)
+		await (animation_tree.animation_finished)
 		emit_signal("muerto")
 	
 	empuje(pos_enemigo)

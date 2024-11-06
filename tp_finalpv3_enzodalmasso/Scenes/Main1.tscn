@@ -27,20 +27,24 @@ SPEED = 100
 fuerza_empuje = 7000
 
 [node name="Enemy" parent="." instance=ExtResource("3_dfhws")]
-position = Vector2(255, 430)
+position = Vector2(812, 250)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_a5kde")]
-position = Vector2(321, 490)
+position = Vector2(382, 428)
 
 [node name="Game Over" parent="." instance=ExtResource("5_spnwt")]
 visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="Victoria" parent="." instance=ExtResource("6_byqyc")]
 visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="AreaVictoria" type="Area2D" parent="."]
 visibility_layer = 3
-position = Vector2(441, 89)
+position = Vector2(1049, 77)
 scale = Vector2(4, 4)
 collision_mask = 2
 
