@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfvcspogwkbm4"]
+[gd_scene load_steps=26 format=3 uid="uid://cfvcspogwkbm4"]
 
 [ext_resource type="Script" path="res://Scrips/main_1.gd" id="1_8hppi"]
 [ext_resource type="PackedScene" uid="uid://cgrvp7ndn2770" path="res://Scenes/nivel.tscn" id="1_8jtd8"]
@@ -9,6 +9,58 @@
 [ext_resource type="PackedScene" uid="uid://cd1pirtsia661" path="res://Scenes/Victoria.tscn" id="6_byqyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e1vw"]
+size = Vector2(31.25, 33.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j0we"]
+size = Vector2(128.5, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfek5"]
+size = Vector2(89, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00fbb"]
+size = Vector2(24, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad6cu"]
+size = Vector2(9, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srt5v"]
+size = Vector2(690, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppkpu"]
+size = Vector2(28, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cg1x5"]
+size = Vector2(368, 24.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7bvr"]
+size = Vector2(90, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix7p8"]
+size = Vector2(107, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwjlo"]
+size = Vector2(23, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wr7h"]
+size = Vector2(24, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2pvy"]
+size = Vector2(58, 233)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym4h4"]
+size = Vector2(344, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf6wl"]
+size = Vector2(14, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2fe7"]
+size = Vector2(9, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s3pf"]
+size = Vector2(20, 154.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdtdh"]
+size = Vector2(16, 203)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8hppi")
@@ -21,35 +73,125 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("2_m52i5")]
 light_mask = 3
-position = Vector2(308, 118)
+position = Vector2(105, 119)
 scale = Vector2(0.6, 0.6)
 SPEED = 100
 fuerza_empuje = 7000
 
-[node name="Enemy" parent="." instance=ExtResource("3_dfhws")]
-position = Vector2(812, 250)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
-[node name="Enemy2" parent="." instance=ExtResource("4_a5kde")]
-position = Vector2(382, 428)
-
-[node name="Game Over" parent="." instance=ExtResource("5_spnwt")]
+[node name="Game Over" parent="CanvasLayer" instance=ExtResource("5_spnwt")]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Victoria" parent="." instance=ExtResource("6_byqyc")]
+[node name="Victoria" parent="CanvasLayer" instance=ExtResource("6_byqyc")]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="AreaVictoria" type="Area2D" parent="."]
+visible = false
 visibility_layer = 3
-position = Vector2(1049, 77)
+position = Vector2(992, 289)
 scale = Vector2(4, 4)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVictoria"]
+position = Vector2(-14.75, 27.75)
 shape = SubResource("RectangleShape2D_1e1vw")
+
+[node name="Colisionadores" type="CharacterBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(130.75, 57.5)
+shape = SubResource("RectangleShape2D_7j0we")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(239.5, 106)
+shape = SubResource("RectangleShape2D_rfek5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(183, 172.5)
+shape = SubResource("RectangleShape2D_00fbb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(59.5, 107)
+shape = SubResource("RectangleShape2D_ad6cu")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(550, 569.5)
+shape = SubResource("RectangleShape2D_srt5v")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(80, 212.5)
+shape = SubResource("RectangleShape2D_ppkpu")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(283, 270.75)
+shape = SubResource("RectangleShape2D_cg1x5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(403, 181)
+shape = SubResource("RectangleShape2D_d7bvr")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(331.5, 14.5)
+shape = SubResource("RectangleShape2D_ix7p8")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(622.5, 104)
+shape = SubResource("RectangleShape2D_bwjlo")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(463, 195.5)
+shape = SubResource("RectangleShape2D_0wr7h")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(579, 245.5)
+shape = SubResource("RectangleShape2D_d2pvy")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(374, 356.5)
+shape = SubResource("RectangleShape2D_ym4h4")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(121, 463)
+shape = SubResource("RectangleShape2D_uf6wl")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(892.5, 522)
+shape = SubResource("RectangleShape2D_j2fe7")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(974, 560.25)
+shape = SubResource("RectangleShape2D_6s3pf")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Colisionadores"]
+position = Vector2(210, 462.5)
+shape = SubResource("RectangleShape2D_bdtdh")
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Enemy3" parent="Enemigos" instance=ExtResource("3_dfhws")]
+position = Vector2(334, 322)
+
+[node name="Enemy2" parent="Enemigos" instance=ExtResource("4_a5kde")]
+position = Vector2(509, 55)
+
+[node name="Enemy" parent="Enemigos" instance=ExtResource("3_dfhws")]
+position = Vector2(242, 230)
+
+[node name="Enemy4" parent="Enemigos" instance=ExtResource("4_a5kde")]
+position = Vector2(168, 598)
+
+[node name="Enemy5" parent="Enemigos" instance=ExtResource("3_dfhws")]
+position = Vector2(413, 613)
+
+[node name="Enemy6" parent="Enemigos" instance=ExtResource("3_dfhws")]
+position = Vector2(742, 616)
 
 [connection signal="muerto" from="Player" to="." method="_on_player_muerto"]
 [connection signal="body_entered" from="AreaVictoria" to="." method="_on_area_victoria_body_entered"]

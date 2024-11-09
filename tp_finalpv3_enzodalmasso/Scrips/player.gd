@@ -82,8 +82,9 @@ func danio(danio_enemi: int, pos_enemigo : Vector2):
 		set_dead(true)
 		await (animation_tree.animation_finished)
 		emit_signal("muerto")
+	else :
+		empuje(pos_enemigo)
 	
-	empuje(pos_enemigo)
 
 
 
@@ -91,12 +92,12 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name ==  "dead_up" or anim_name=="dead_down"or anim_name=="dead_right" or anim_name=="dead_left":
 		get_parent().remove_child(self)
 		queue_free()
+		
 
 func empuje(direccion: Vector2):
-
-	var dir_empuje = (global_position-direccion).normalized() * fuerza_empuje
-	velocity = dir_empuje
-	move_and_slide()
+		var dir_empuje = (global_position-direccion).normalized() * fuerza_empuje
+		velocity = dir_empuje
+		move_and_slide()
 
 
 

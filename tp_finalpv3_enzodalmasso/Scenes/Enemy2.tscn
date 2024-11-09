@@ -1820,10 +1820,10 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-53, -42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i1tsr"]
-radius = 150.001
+radius = 64.2897
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rym5"]
-size = Vector2(34, 39.5)
+size = Vector2(22.1429, 31.4286)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yyy08"]
 radius = 4.0
@@ -1847,7 +1847,7 @@ vida = 2
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_ywl2d")
 animation = &"idle_up"
-frame = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1863,8 +1863,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_hm5u3")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.4
-parameters/current_position = 0.301201
-parameters/current_delta = 0.0133333
+parameters/current_position = 0.189879
+parameters/current_delta = 0.0166667
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1908,15 +1908,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.4
-parameters/idle/current_position = 0.301201
-parameters/idle/current_delta = 0.0133333
+parameters/idle/current_position = 0.189879
+parameters/idle/current_delta = 0.0166667
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.4
-parameters/idle/1/current_position = 0.301201
-parameters/idle/1/current_delta = 0.0133333
+parameters/idle/1/current_position = 0.189879
+parameters/idle/1/current_delta = 0.0166667
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606
@@ -1951,7 +1951,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuadroColision"]
-position = Vector2(1.04, -3.93)
+position = Vector2(1.07143, -3.57143)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5rym5")
 debug_color = Color(0.995383, 0, 0.206215, 0.42)
 
