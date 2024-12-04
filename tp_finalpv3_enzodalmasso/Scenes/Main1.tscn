@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfvcspogwkbm4"]
+[gd_scene load_steps=27 format=3 uid="uid://cfvcspogwkbm4"]
 
 [ext_resource type="Script" path="res://Scrips/main_1.gd" id="1_8hppi"]
 [ext_resource type="PackedScene" uid="uid://cgrvp7ndn2770" path="res://Scenes/nivel.tscn" id="1_8jtd8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://54c753qu36p" path="res://Scenes/Enemy2.tscn" id="4_a5kde"]
 [ext_resource type="PackedScene" uid="uid://ylfwmgyawc7w" path="res://Scenes/game_over.tscn" id="5_spnwt"]
 [ext_resource type="PackedScene" uid="uid://cd1pirtsia661" path="res://Scenes/Victoria.tscn" id="6_byqyc"]
+[ext_resource type="PackedScene" uid="uid://b5qso5827ibkt" path="res://Scenes/Pausa.tscn" id="6_d4bg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e1vw"]
 size = Vector2(31.25, 33.75)
@@ -67,10 +68,6 @@ script = ExtResource("1_8hppi")
 
 [node name="Nivel" parent="." instance=ExtResource("1_8jtd8")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(581, 322)
-scale = Vector2(0.5, 0.5)
-
 [node name="Player" parent="." instance=ExtResource("2_m52i5")]
 light_mask = 3
 position = Vector2(105, 119)
@@ -78,18 +75,27 @@ scale = Vector2(0.6, 0.6)
 SPEED = 100
 fuerza_empuje = 7000
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
 [node name="Game Over" parent="CanvasLayer" instance=ExtResource("5_spnwt")]
 visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
 
 [node name="Victoria" parent="CanvasLayer" instance=ExtResource("6_byqyc")]
 visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource("6_d4bg3")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AreaVictoria" type="Area2D" parent="."]
 visible = false
@@ -185,13 +191,14 @@ position = Vector2(509, 55)
 position = Vector2(242, 230)
 
 [node name="Enemy4" parent="Enemigos" instance=ExtResource("4_a5kde")]
-position = Vector2(168, 598)
+position = Vector2(875, 609)
 
 [node name="Enemy5" parent="Enemigos" instance=ExtResource("3_dfhws")]
-position = Vector2(413, 613)
+position = Vector2(169, 609)
 
 [node name="Enemy6" parent="Enemigos" instance=ExtResource("3_dfhws")]
-position = Vector2(742, 616)
+position = Vector2(512, 617)
 
 [connection signal="muerto" from="Player" to="." method="_on_player_muerto"]
+[connection signal="pausa" from="CanvasLayer/Pausa" to="." method="_on_pausa_pausa"]
 [connection signal="body_entered" from="AreaVictoria" to="." method="_on_area_victoria_body_entered"]
