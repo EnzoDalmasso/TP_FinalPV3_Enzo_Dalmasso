@@ -29,14 +29,25 @@ offset_bottom = 223.0
 scale = Vector2(5, 5)
 text = "¡Victoria!"
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="Retry" type="Button" parent="ColorRect"]
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 455.0
-offset_top = 394.0
+offset_top = 447.83
 offset_right = 635.0
-offset_bottom = 438.0
+offset_bottom = 491.83
 theme_override_font_sizes/font_size = 26
 text = "Volver a jugar"
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[node name="NextLevel" type="Button" parent="ColorRect"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 455.0
+offset_top = 368.75
+offset_right = 649.001
+offset_bottom = 412.75
+theme_override_font_sizes/font_size = 26
+text = "Siguiente Nivel"
+
+[connection signal="pressed" from="ColorRect/Retry" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/NextLevel" to="." method="_on_next_level_pressed"]

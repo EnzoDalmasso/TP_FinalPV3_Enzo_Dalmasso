@@ -17,7 +17,7 @@ func _on_player_muerto() -> void:
 #Esta funcion se utiliza cuando el player entra al area activa la la interfaz Victoria
 func _on_area_victoria_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer() == 2:
-		get_tree().change_scene_to_file("res://Scenes/main_2.tscn")
+		victoria.visible=true
 		player.queue_free()
 		
 	
