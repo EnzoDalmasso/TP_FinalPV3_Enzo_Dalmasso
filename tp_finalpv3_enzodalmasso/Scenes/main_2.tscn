@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://tkunjr4eqba7"]
+[gd_scene load_steps=8 format=3 uid="uid://tkunjr4eqba7"]
+
+[ext_resource type="PackedScene" uid="uid://n0dla23b1fj5" path="res://Scenes/nivel_2.tscn" id="1_hcnme"]
+[ext_resource type="Script" path="res://Scrips/main_2.gd" id="1_ixskc"]
+[ext_resource type="PackedScene" uid="uid://b8pua6mpjk13d" path="res://Scenes/player.tscn" id="2_ptcfv"]
+[ext_resource type="PackedScene" uid="uid://ylfwmgyawc7w" path="res://Scenes/game_over.tscn" id="4_pnfnv"]
+[ext_resource type="PackedScene" uid="uid://cd1pirtsia661" path="res://Scenes/Victoria.tscn" id="5_6du8w"]
+[ext_resource type="PackedScene" uid="uid://b5qso5827ibkt" path="res://Scenes/Pausa.tscn" id="6_rd6r3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ds57"]
+size = Vector2(31.25, 33.75)
 
 [node name="Main2" type="Node2D"]
+script = ExtResource("1_ixskc")
+
+[node name="Nivel2" parent="." instance=ExtResource("1_hcnme")]
+
+[node name="Player" parent="Nivel2" instance=ExtResource("2_ptcfv")]
+light_mask = 3
+position = Vector2(122, 111)
+scale = Vector2(0.6, 0.6)
+SPEED = 100
+fuerza_empuje = 7000
+
+[node name="Camera2D" type="Camera2D" parent="Nivel2/Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Game Over" parent="CanvasLayer" instance=ExtResource("4_pnfnv")]
+visible = false
+
+[node name="Victoria" parent="CanvasLayer" instance=ExtResource("5_6du8w")]
+visible = false
+
+[node name="Pausa" parent="CanvasLayer" instance=ExtResource("6_rd6r3")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreaVictoria" type="Area2D" parent="."]
+visible = false
+visibility_layer = 3
+position = Vector2(992, 289)
+scale = Vector2(4, 4)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVictoria"]
+position = Vector2(-14.75, 27.75)
+shape = SubResource("RectangleShape2D_5ds57")

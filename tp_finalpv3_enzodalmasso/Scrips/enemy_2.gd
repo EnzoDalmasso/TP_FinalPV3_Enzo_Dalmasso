@@ -53,6 +53,7 @@ func danio():
 		set_dead(true)#Activa la animacion de muerte
 		set_run(false)#Desactiva la animacion de correr
 		set_swing(false)#Desactiva la animacion de ataque
+		death_enemy.play()
 		await (animation_tree.animation_finished)#Finaliza la animacion de muerte y elimina el cuerpo del enemigo
 		queue_free()
 
@@ -65,13 +66,14 @@ func _on_cuadro_colision_body_entered(body):
 		perseguir=false
 		set_run(false)
 		set_swing(true)
-		
+		ataque_ogro.play()
 
 #Cuando el Player entra al CuadroColision el enemigo deja de realizar la animacion de ataque y vuelve al estado correr
 func _on_cuadro_colision_body_exited(body: Node2D) -> void:
 	if body is Player:
 		perseguir=true
 		set_swing(false)
+		$CuadroColision.disable_mode
 		set_run(true)
 
 

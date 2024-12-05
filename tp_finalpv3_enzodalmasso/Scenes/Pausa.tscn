@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5qso5827ibkt"]
+[gd_scene load_steps=3 format=3 uid="uid://b5qso5827ibkt"]
 
 [ext_resource type="Script" path="res://Scrips/pausa.gd" id="1_6t403"]
+[ext_resource type="AudioStream" uid="uid://cduwjih4punxe" path="res://Sound/mouseclick1.ogg" id="2_ras11"]
 
 [node name="Pausa" type="Control"]
 process_mode = 3
@@ -16,28 +17,48 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 144.145
+offset_right = -43.0
+offset_bottom = 167.145
+grow_horizontal = 2
+scale = Vector2(4, 4)
+text = "Pausa
+"
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -124.0
-offset_right = -79.0
-offset_bottom = -101.0
+offset_left = -23.5
+offset_top = 83.705
+offset_right = 23.5
+offset_bottom = 106.705
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
-text = "Pause
+text = "Sonido
 "
 
 [node name="Button" type="Button" parent="ColorRect"]
 self_modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_left = 455.0
-offset_top = 330.97
-offset_right = 635.0
-offset_bottom = 374.97
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -63.56
+offset_right = 90.0
+offset_bottom = -19.56
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 text = "Reanudar
 "
@@ -45,13 +66,36 @@ text = "Reanudar
 [node name="Button2" type="Button" parent="ColorRect"]
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 0
-offset_left = 455.0
-offset_top = 404.0
-offset_right = 635.0
-offset_bottom = 448.0
+offset_left = 486.0
+offset_top = 339.665
+offset_right = 666.0
+offset_bottom = 383.665
 theme_override_font_sizes/font_size = 26
 text = "Salir al menu
 "
 
+[node name="HScrollBar" type="HScrollBar" parent="ColorRect"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -194.305
+offset_right = 84.0
+offset_bottom = -144.305
+grow_horizontal = 2
+grow_vertical = 0
+min_value = -15.0
+max_value = 15.0
+page = 1.0
+value = -15.0
+
+[node name="SonidoClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ras11")
+
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="value_changed" from="ColorRect/HScrollBar" to="." method="_on_h_scroll_bar_value_changed"]

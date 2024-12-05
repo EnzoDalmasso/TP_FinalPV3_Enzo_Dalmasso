@@ -67,7 +67,6 @@ size = Vector2(20, 154.5)
 size = Vector2(16, 203)
 
 [node name="Main" type="Node2D"]
-process_mode = 1
 script = ExtResource("1_8hppi")
 
 [node name="Musica Fondo" type="AudioStreamPlayer" parent="."]
@@ -86,8 +85,6 @@ fuerza_empuje = 7000
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 1175
-limit_bottom = 650
 limit_smoothed = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -217,4 +214,5 @@ stream = ExtResource("11_brkos")
 
 [connection signal="muerto" from="Player" to="." method="_on_player_muerto"]
 [connection signal="pausa" from="CanvasLayer/Pausa" to="." method="_on_pausa_pausa"]
+[connection signal="volumen" from="CanvasLayer/Pausa" to="." method="_on_pausa_volumen"]
 [connection signal="body_entered" from="AreaVictoria" to="." method="_on_area_victoria_body_entered"]

@@ -17,6 +17,10 @@ var direction : Vector2 = Vector2.ZERO #Direccion
 var material_shader #Variable para shaders
 signal muerto #Señal de muerte
 
+@onready var audio_ataque: AudioStreamPlayer = $Sonidos/Ataque
+@onready var death_player: AudioStreamPlayer = $Sonidos/DeathPlayer
+
+
 
 func _physics_process(_delta):
 	if not attack: #Si el personaje no esta atacando
@@ -41,6 +45,7 @@ func _process(_delta):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Attack"):
 		attack=true #Ataque es verdadero
+		audio_ataque.play()
 		set_run(false) 
 		set_swing(true)
 		areaespada.disabled = false #Desactiva el area de la espada una vez terminada la animacion
@@ -87,6 +92,7 @@ func danio(danio_enemi: int, pos_enemigo : Vector2):
 	if vida <= 0: #Si la vida es menor igual a 0
 		set_physics_process(false) #Desactiva las fisicas
 		set_dead(true) #Activa la animacion de muerte
+		death_player.play()
 		await (animation_tree.animation_finished) #Finaliza la animacion de muerte y emite señal de muerte
 		emit_signal("muerto")
 	else :

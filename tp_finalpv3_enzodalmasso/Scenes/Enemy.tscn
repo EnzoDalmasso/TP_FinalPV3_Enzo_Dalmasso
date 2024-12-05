@@ -1,7 +1,9 @@
-[gd_scene load_steps=183 format=3 uid="uid://dm5c2y7le0rsq"]
+[gd_scene load_steps=185 format=3 uid="uid://dm5c2y7le0rsq"]
 
 [ext_resource type="Script" path="res://Scrips/enemy.gd" id="1_6yyuc"]
 [ext_resource type="Texture2D" uid="uid://cu72metraoile" path="res://Sprites/Enemy1 Sprites/Enemy.png" id="2_ad0d8"]
+[ext_resource type="AudioStream" uid="uid://sg8admmv3lo1" path="res://Sound/AtaqueOgro.wav" id="3_a43i5"]
+[ext_resource type="AudioStream" uid="uid://k12p0tso2xtc" path="res://Sound/DeathEnemy.wav" id="4_h132k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwhr0"]
 atlas = ExtResource("2_ad0d8")
@@ -1926,7 +1928,7 @@ vel = 50
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6idk7")
 animation = &"idle_up"
-frame = 1
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -4)
@@ -1942,8 +1944,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1dj7i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.5
-parameters/current_position = 0.140918
-parameters/current_delta = 0.0145833
+parameters/current_position = 0.272338
+parameters/current_delta = 0.0133333
 parameters/conditions/Dead = false
 parameters/conditions/Idle = false
 parameters/conditions/Run = false
@@ -1987,15 +1989,15 @@ parameters/dead/3/current_length = 1.58
 parameters/dead/3/current_position = 0.533333
 parameters/dead/3/current_delta = 0.0133333
 parameters/idle/current_length = 0.5
-parameters/idle/current_position = 0.140918
-parameters/idle/current_delta = 0.0145833
+parameters/idle/current_position = 0.272338
+parameters/idle/current_delta = 0.0133333
 parameters/idle/blend_position = Vector2(-0.0206677, -1.01715)
 parameters/idle/0/current_length = 0.91
 parameters/idle/0/current_position = 0.733939
 parameters/idle/0/current_delta = 0.0133333
 parameters/idle/1/current_length = 0.5
-parameters/idle/1/current_position = 0.140918
-parameters/idle/1/current_delta = 0.0145833
+parameters/idle/1/current_position = 0.272338
+parameters/idle/1/current_delta = 0.0133333
 parameters/idle/2/current_length = 0.91
 parameters/idle/2/current_position = 0.0
 parameters/idle/2/current_delta = 0.640606
@@ -2055,6 +2057,14 @@ theme_override_styles/background = SubResource("StyleBoxFlat_2di6l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5kwr4")
 max_value = 10.0
 value = 10.0
+
+[node name="Sonidos" type="Node" parent="."]
+
+[node name="AtaqueOgro" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource("3_a43i5")
+
+[node name="DeathEnemy" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource("4_h132k")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="SeguimientoPlayer" to="." method="_on_area_2d_body_entered"]

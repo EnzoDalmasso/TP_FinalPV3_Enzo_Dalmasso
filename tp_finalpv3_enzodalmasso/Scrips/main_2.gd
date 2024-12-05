@@ -5,9 +5,11 @@ extends Node2D
 @onready var area_victoria: Area2D = $AreaVictoria
 @onready var player: Player = $Player
 @onready var pausa: Control = $CanvasLayer/Pausa
+@onready var musica_fondo: AudioStreamPlayer = $"Musica Fondo"
 @onready var sonido_victoria: AudioStreamPlayer = $SonidoVictoria
 @onready var sonido_derrota: AudioStreamPlayer = $SonidoDerrota
-@onready var musica_fondo: AudioStreamPlayer = $"Musica Fondo"
+
+
 
 var pause = false
 
@@ -25,25 +27,21 @@ func _on_area_victoria_body_entered(body: Node2D) -> void:
 		
 	
 	
-func _ready() -> void:
-	musica_fondo.play()
-	musica_fondo.volume_db = -10
+func _process(_delta: float) -> void:
+	pass#MIRA VISTE?
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Pausa"):
-		_on_pausa_pausa()
+func _physics_process(_delta: float) -> void:
+	if pause:
+		pausa.visible=true
+	else:
+		pausa.visible=false
+	
 
 
 func _on_pausa_pausa() -> void:
-	
-	pausa.show()
-	get_tree().paused=true
-	
+	pausa.visible=true
 
 
 
-#aca que agarre el valor de la señal de volumen
 func _on_pausa_volumen() -> void:
-	#descomenta esto cuando puedas recibir el valor y ponelo al lado de la coma
-	#AudioServer.set_bus_volume_db(0,)
-	pass
+	musica_fondo.volume_db
