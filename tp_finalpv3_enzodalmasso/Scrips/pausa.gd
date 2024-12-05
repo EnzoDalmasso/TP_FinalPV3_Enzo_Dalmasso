@@ -5,10 +5,7 @@ extends Control
 signal pausa
 
 
-
-
 func _on_button_pressed() -> void:
-	#Despausa el tr
 	get_tree().paused = false
 	sonido_click.play()
 	hide()

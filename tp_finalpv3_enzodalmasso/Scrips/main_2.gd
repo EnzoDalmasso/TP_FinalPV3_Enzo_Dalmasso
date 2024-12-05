@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var game_over: Control = $"CanvasLayer/Game Over"
-@onready var victoria: Control = $CanvasLayer/Victoria
+@onready var final_nivel: Control = $CanvasLayer/FinalNivel
 @onready var area_victoria: Area2D = $AreaVictoria
-@onready var player: Player = $Player
+@onready var player: Player = $Nivel2/Player
 @onready var pausa: Control = $CanvasLayer/Pausa
 @onready var musica_fondo: AudioStreamPlayer = $"Musica Fondo"
 @onready var sonido_victoria: AudioStreamPlayer = $SonidoVictoria
@@ -22,26 +22,25 @@ func _on_player_muerto() -> void:
 func _on_area_victoria_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer() == 2:
 		sonido_victoria.play()
-		victoria.visible=true
+		final_nivel.visible=true
 		player.queue_free()
 		
 	
 	
-func _process(_delta: float) -> void:
-	pass#MIRA VISTE?
-
-func _physics_process(_delta: float) -> void:
-	if pause:
-		pausa.visible=true
-	else:
-		pausa.visible=false
 	
+func _ready() -> void:
+	musica_fondo.play()
+	musica_fondo.volume_db = -10
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pausa"):
+		_on_pausa_pausa()
+
 
 
 func _on_pausa_pausa() -> void:
-	pausa.visible=true
+	pausa.show()
+	get_tree().paused=true
+	
 
-
-
-func _on_pausa_volumen() -> void:
-	musica_fondo.volume_db

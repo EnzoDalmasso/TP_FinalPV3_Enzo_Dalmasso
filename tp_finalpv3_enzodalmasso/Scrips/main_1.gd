@@ -24,11 +24,13 @@ func _on_area_victoria_body_entered(body: Node2D) -> void:
 		player.queue_free()
 		
 	
-	
+
 func _ready() -> void:
+	#Inicia el juego e inicia la musica de fondo con su volumen designado
 	musica_fondo.play()
 	musica_fondo.volume_db = -10
 
+#funcion que se utiliza para llamar a la interfaz de menu de pausa
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pausa"):
 		_on_pausa_pausa()
@@ -41,9 +43,3 @@ func _on_pausa_pausa() -> void:
 	
 
 
-
-#aca que agarre el valor de la señal de volumen
-func _on_pausa_volumen() -> void:
-	#descomenta esto cuando puedas recibir el valor y ponelo al lado de la coma
-	#AudioServer.set_bus_volume_db(0,)
-	pass
