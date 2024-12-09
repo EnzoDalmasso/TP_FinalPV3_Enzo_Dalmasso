@@ -45,7 +45,7 @@ grow_vertical = 2
 text = "Sonido
 "
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="Reanudar" type="Button" parent="ColorRect"]
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -54,16 +54,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -90.0
-offset_top = -63.56
+offset_top = -90.845
 offset_right = 90.0
-offset_bottom = -19.56
+offset_bottom = -46.845
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 text = "Reanudar
 "
 
-[node name="Button2" type="Button" parent="ColorRect"]
+[node name="Salir" type="Button" parent="ColorRect"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 486.0
+offset_top = 288.74
+offset_right = 666.0
+offset_bottom = 332.74
+theme_override_font_sizes/font_size = 26
+text = "Salir al menu
+"
+
+[node name="Mute" type="Button" parent="ColorRect"]
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 486.0
@@ -71,7 +82,7 @@ offset_top = 339.665
 offset_right = 666.0
 offset_bottom = 383.665
 theme_override_font_sizes/font_size = 26
-text = "Salir al menu
+text = "Mutear Sonido
 "
 
 [node name="HScrollBar" type="HScrollBar" parent="ColorRect"]
@@ -96,6 +107,7 @@ value = -15.0
 [node name="SonidoClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ras11")
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/Reanudar" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Salir" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/Mute" to="." method="_on_mute_pressed"]
 [connection signal="value_changed" from="ColorRect/HScrollBar" to="." method="_on_h_scroll_bar_value_changed"]
